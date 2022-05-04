@@ -5,8 +5,41 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DeathStrandingRoadCalculatorReduX"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="739" Width="565"
+        ResizeMode="NoResize">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="317*"/>
+            <RowDefinition Height="339*"/>
+            <RowDefinition Height="67*"/>
+        </Grid.RowDefinitions>
+        <DataGrid x:Name="MainDataGrid" ItemsSource="{Binding}" Margin="10,10,10,10" Grid.ColumnSpan="2" AutoGenerateColumns="False" SelectionChanged="MainDataGrid_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Metals" Binding="{Binding MetalSum}"/>
+                <DataGridTextColumn Header="Ceramics" Binding="{Binding CeramicSum}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid x:Name="CombinedDataGrid" ItemsSource="{Binding}" Margin="10,10,10,10" Grid.Row="1" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Category" Binding="{Binding Identifier}"/>
+                <DataGridTextColumn Header="Package size" Binding="{Binding Size}"/>
+                <DataGridTextColumn Header="Count" Binding="{Binding Count}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid x:Name="SelectedDataGrid" ItemsSource="{Binding}" Margin="10,10,10,10" Grid.Column="1" Grid.Row="1" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Category" Binding="{Binding Identifier}"/>
+                <DataGridTextColumn Header="Package size" Binding="{Binding Size}"/>
+                <DataGridTextColumn Header="Count" Binding="{Binding Count}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="AddPrinterButton" Content="Add Printer" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Click="AddPrinterButton_Click" Height="20" Width="64"/>
+        <Button x:Name="DeletePrinterButton" Grid.Column="1" Content="Delete" HorizontalAlignment="Center" Margin="0,15,0,0" Grid.Row="2" VerticalAlignment="Top" Click="DeletePrinterButton_Click" Height="20" Width="38"/>
 
     </Grid>
 </Window>
