@@ -39,18 +39,6 @@ namespace DeathStrandingRoadCalculatorReduX
             CombinedDataGrid.DataContext = printerSum;
             SelectedDataGrid.DataContext = selectedPrinterCalculated;
 
-
-            #region HACK
-            roadPrinterCollection.Add(new RoadPrinter(roadPrinterIndex, 550, 1600));
-            roadPrinterIndex++;
-            roadPrinterCollection.Add(new RoadPrinter(roadPrinterIndex, 1050, 1300));
-            roadPrinterIndex++;
-            roadPrinterCollection.Add(new RoadPrinter(roadPrinterIndex, 40, 880));
-            roadPrinterIndex++;
-            roadPrinterCollection.Add(new RoadPrinter(roadPrinterIndex, 650, 45));
-            roadPrinterIndex++;
-            #endregion
-
             RecalculateSum();
 
         }
@@ -68,6 +56,9 @@ namespace DeathStrandingRoadCalculatorReduX
             roadPrinterIndex++;
         }
 
+        /// <summary>
+        /// Recalculates and sets materials from all printers
+        /// </summary>
         private void RecalculateSum()
         {
             printerSum.Clear();
