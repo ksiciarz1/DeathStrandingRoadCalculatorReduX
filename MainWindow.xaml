@@ -17,21 +17,21 @@
             <RowDefinition Height="339*"/>
             <RowDefinition Height="67*"/>
         </Grid.RowDefinitions>
-        <DataGrid x:Name="MainDataGrid" ItemsSource="{Binding}" Margin="10,10,10,10" Grid.ColumnSpan="2" AutoGenerateColumns="False" SelectionChanged="MainDataGrid_SelectionChanged">
+        <DataGrid x:Name="MainDataGrid" ItemsSource="{Binding}" Margin="10,10,10,10" Grid.ColumnSpan="2" AutoGenerateColumns="False" SelectionChanged="MainDataGrid_SelectionChanged" CanUserAddRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
                 <DataGridTextColumn Header="Metals" Binding="{Binding MetalSum}"/>
                 <DataGridTextColumn Header="Ceramics" Binding="{Binding CeramicSum}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <DataGrid x:Name="CombinedDataGrid" ItemsSource="{Binding}" Margin="10,10,10,10" Grid.Row="1" AutoGenerateColumns="False">
+        <DataGrid x:Name="CombinedDataGrid" ItemsSource="{Binding}" Margin="10,10,10,10" Grid.Row="1" AutoGenerateColumns="False" CanUserAddRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Category" Binding="{Binding Identifier}"/>
                 <DataGridTextColumn Header="Package size" Binding="{Binding Size}"/>
                 <DataGridTextColumn Header="Count" Binding="{Binding Count}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <DataGrid x:Name="SelectedDataGrid" ItemsSource="{Binding}" Margin="10,10,10,10" Grid.Column="1" Grid.Row="1" AutoGenerateColumns="False">
+        <DataGrid x:Name="SelectedDataGrid" ItemsSource="{Binding}" Margin="10,10,10,10" Grid.Column="1" Grid.Row="1" AutoGenerateColumns="False" CanUserAddRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Category" Binding="{Binding Identifier}"/>
                 <DataGridTextColumn Header="Package size" Binding="{Binding Size}"/>

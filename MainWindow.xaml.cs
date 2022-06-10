@@ -1,18 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace DeathStrandingRoadCalculatorReduX
 {
@@ -28,7 +17,6 @@ namespace DeathStrandingRoadCalculatorReduX
 
         public MainWindow()
         {
-
             roadPrinterCollection = new ObservableCollection<RoadPrinter>();
             printerSum = new ObservableCollection<PrinterViewContext>();
             selectedPrinterCalculated = new ObservableCollection<PrinterViewContext>();
@@ -40,7 +28,6 @@ namespace DeathStrandingRoadCalculatorReduX
             SelectedDataGrid.DataContext = selectedPrinterCalculated;
 
             RecalculateSum();
-
         }
 
         public void AddPrinter(string? name, int metal, int ceramics)
@@ -106,6 +93,9 @@ namespace DeathStrandingRoadCalculatorReduX
             }
         }
 
+        /// <summary>
+        /// Shows materials required for selected printer
+        /// </summary>
         private void MainDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             selectedPrinterCalculated.Clear();
