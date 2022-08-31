@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace DeathStrandingRoadCalculatorReduX
 {
@@ -16,6 +17,24 @@ namespace DeathStrandingRoadCalculatorReduX
             InitializeComponent();
         }
 
+        // Option to subtract inside a textbox
+        private void ValueTextBoxLostFocusEvent(object sender, RoutedEventArgs e)
+        {
+            if (sender == null) return;
+            if (sender == NameTextBox) return;
+            if (sender is TextBox)
+            {
+                TextBox textBox = sender as TextBox;
+                if (textBox.Text.Contains('-'))
+                {
+                    string[] values = textBox.Text.Split('-');
+                    int calculatedValue = int.Parse(values[0]) - int.Parse(values[1]);
+                    textBox.Text = calculatedValue.ToString();
+                    Console.WriteLine($"Calculated {calculatedValue}");
+                }
+            }
+        }
+
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -26,5 +45,6 @@ namespace DeathStrandingRoadCalculatorReduX
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e) { Close(); }
+
     }
 }
