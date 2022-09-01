@@ -40,6 +40,10 @@ namespace DeathStrandingRoadCalculatorReduX
             try
             {
                 mainWindow.AddPrinter(NameTextBox.Text, Convert.ToInt32(MetalTextBox.Text), Convert.ToInt32(CeramicsTextBox.Text));
+                NameTextBox.Clear();
+                MetalTextBox.Clear();
+                CeramicsTextBox.Clear();
+
             }
             catch (Exception ex) { Console.WriteLine(ex.Message); }
         }

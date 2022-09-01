@@ -36,7 +36,14 @@ namespace DeathStrandingRoadCalculatorReduX
             if (name == null || name == "")
                 temp = new RoadPrinter(roadPrinterIndex, metal, ceramics);
             else
+            {
+                if (name.Contains("$"))
+                {
+                    name = name.Replace("$", roadPrinterIndex.ToString());
+                }
                 temp = new RoadPrinter(name, metal, ceramics);
+
+            }
 
             roadPrinterCollection.Add(temp);
             RecalculateSum();
